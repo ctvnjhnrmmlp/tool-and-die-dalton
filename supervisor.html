@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="images/x-icon" href="/images/ICON.JPG"/>
+  <title>Supervisor Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
+
+  <link rel="stylesheet" href="supervisor.css">
+  <style>
+    .result {
+      width: 100%;
+
+      border-collapse: collapse;
+    }
+
+    .result,
+    th,
+    td {
+      border: 1px solid black;
+      padding: 5px;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+
+    
+  </style>
+</head>
+
+<body>
+  <div class="grid-container" id="dashboard">
+
+    <!-- Header -->
+    <header class="header">
+      <div class="menu-icon" onclick="">
+        <span class="material-symbols-outlined">menu</span>
+      </div>
+
+      <div class="header-left">
+        <span class="material-symbols-outlined">search</span>
+      </div>
+
+      <div class="header-right">
+        <span class="material-symbols-outlined">notifications</span>
+        <span class="material-symbols-outlined">mail</span>
+        <span class="material-symbols-outlined">account_circle</span>
+      </div>
+    </header>
+
+    <aside id="sidebar">
+      <div class="sidebar-title">
+        <div class="sidebar-brand">
+          <span class="material-symbols-outlined">inventory</span>Tool and Die Shop
+        </div>
+        <span class="material-symbols-outlined" onclick="closeSidebar()">close</span>
+      </div>
+
+      <ul class="sidebar-list">
+        <li class="sidebar-list-item" class="">
+          <a href="#dashboard"><span class="material-symbols-outlined">dashboard</span> Dashboard</a>
+          
+        </li>
+
+        <li id="funcOrders" onclick="clickOrders()" class="sidebar-list-item">
+          <a href="#jobOrder"><span class="material-symbols-outlined">shopping_cart</span> Receive Job Order</a>
+        </li>
+        <!-- LAGYAN NG BY SECTION TAS IMOVE YUNG JOB ORDER TABLE DITO PARA PAG ICLICK PUPUNTA DUN -->
+
+        <li class="sidebar-list-item">
+          <a href="#jobType">
+            <span class="material-symbols-outlined">summarize</span> Check Materials
+          </a>
+          
+        </li>
+        <!-- ITABLE YUNG MATERIALS -->
+
+        <li class="sidebar-list-item">
+          <a href="#assignJob">
+              <span class="material-symbols-outlined">support_agent</span>  Assign Jobs to Worker
+            
+          </a>
+        </li>
+        <!-- KOYAHIN YUNG EMPLOYEE TABLE TAS PALITAN YUNG LAMAN -->
+        <!-- Employee name | Position | Curret Work | Assign Job btn -->
+
+        <li class="sidebar-list-item">
+          <a href="index.html">
+            <span class="material-symbols-outlined">logout</span> Logout
+          </a>
+        </li>
+      </ul>
+
+    </aside>
+
+
+    <div class="container">
+      <label for="job-number" >Job Number:</label>
+      <select name="job-type" class="job-type">
+        <option value="">Select Job type:</option>
+        <option value="Metal Stamping">Metal Stamping</option>
+        <option value="Welding and Finishing">Welding and Finishing</option>
+        <option value="Laser Cutting Services">Laser Cutting Services</option>
+        <option value="Metal Fabrication Services">Metal Fabrication Services</option>
+      </select>
+
+      <label for="">Estimated Time</label>
+      <select name="estimated-time" class="estimated-time">
+        <option value="">Select Estimated time:</option>
+        <option value="1 Hour">1 Hour</option>
+        <option value="2 Hours">2 Hours</option>
+        <option value="3 Hours">3 Hours</option>
+        <option value="4 Hours">4 Hours</option>
+        <option value="5 Hours">5 Hours</option>
+        <option value="6 Hours">6 Hours</option>
+      </select>
+
+      <label for="status">Status</label>
+      <select name="status" class="status">
+        <option value="">Select Status:</option>
+        <option value="In-Progress">In-Progress</option>
+        <option value="Delay">Delay</option>
+        <option value="Finished">Finish</option>
+      </select>
+
+      <label for="date">Schedule:</label>
+      <input type="date" class="datePicker">
+
+      
+      <span class="time"></span>
+      <p class="hours-worked"></p>
+
+      <button class="submit-btn">Submit</button>
+
+      
+      <p id="jobType"></p>
+      <label for="materials" class="job-type-display">Materials for the Job:</label>
+        <table class="materials-table">
+          <thead>
+            <tr>
+              <th>Material</th>
+            </tr>
+          </thead>
+          <tbody class="materials-body">
+            
+          </tbody>
+        </table>
+
+      <h1 id="jobOrder">Job Order</h1>
+
+      <table class="result">
+        <tr>
+          <th>Job Number</th>
+          <th>Type of Job</th>
+          <th>Status</th>
+          <th>Materials Used</th>
+          
+          <th>Notes</th>
+          <th>Estimated work Hour</th>
+          <th>Schedule to do the Job</th>
+          <th>Total Bill</th>
+        </tr>
+        <tr>
+          <td>567</td>
+          <td>Welding and Finishing</td>
+          <td>Completed</td>
+          <td>- Metal brush<br>- Angle Grinder<br>- Pliers<br>- Welding clamps<br>- Electrodes<br>- Welding magnets</td>
+          <td>Welding is finished</td>
+          <td>4 hours</td>
+          
+          <td>2024-02-14</td>
+          <td>$500</td>
+        </tr>
+        <tr>
+          <td>237</td>
+          <td>Laser Cutting Services</td>
+          <td>Completed</td>
+          <td>- Foams<br>- PVC<br>- Glass<br>- Polycarbonate<br>- Fiberglass<br>- Metal</td>
+          <td>Did not provide any note</td>
+          <td>3 hours</td>
+          
+          <td>2024-02-18</td>
+          <td>$210</td>
+        </tr>
+        <tr>
+          <td>781</td>
+          <td>Metal Fabrication Services</td>
+          <td>Completed</td>
+          <td>- Iron<br>- Carbon steel<br>- Welding wire<br>- Bronze<br>- Hardware<br>- Castings</td>
+          <td>Did not provide any note</td>
+          <td>6 hours</td>
+          
+          <td>2024-02-26</td>
+          <td>$650</td>
+        </tr>
+        <tr>
+          <td>152</td>
+          <td>Metal Stamping</td>
+          <td>Delay</td>
+          <td>- Aluminum<br>- Stainless streel<br>- Copper<br>- Steel alloys<br>- Carbon steel</td>
+          <td>Did not provide any note</td>
+          <td>3 hours</td>
+          
+          <td>2024-02-20</td>
+          <td>$100</td>
+        </tr>
+        <tr>
+          <td>587</td>
+          <td>Welding and Finishing</td>
+          <td>Completed</td>
+          <td>- Metal brush<br>- Angle Grinder<br>- Pliers<br>- Welding clamps<br>- Electrodes<br>- Welding magnets</td>
+          <td>Did not provide any note</td>
+          <td>3 hours</td>
+          
+          <td>2024-02-18</td>
+          <td>$500</td>
+        </tr>
+      </table>
+
+      <h1>
+        Employee List
+    </h1>
+      <div class="employee" id="assignJob">
+        
+        <main>
+            <table>
+                <thead>
+                    <tr>
+                        <th class="head-color">
+                            Employee Name
+                        </th>
+                        
+                        <th class="head-color">
+                            Position
+                        </th>
+                        <th class="head-color">
+                          Job Type
+                        </th>
+                        <th class="head-color">
+                          Job assign
+                        </th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td data-title='Provider Name'>
+                            Dalton John A. Palma
+                        </td>
+                        
+                        <td class='position'>
+                            CNC Laser Operator
+                        </td>
+
+                        <td class='jobs'>
+                          Metal Stamping
+                      </td>
+                      <td>
+                        Occupied
+                      </td>
+                    </tr>
+
+                    <tr>
+                        <td data-title='Provider Name'>
+                            Catherine A. Olleres
+                        </td>
+                        
+                        <td class='position'>
+                            Engineering Tool & Die Designer
+                        </td>
+
+                        <td class='jobs'>
+                          Metal Fabrication Services
+                      </td>
+                      <td>
+                        Occupied
+                      </td>
+                    </tr>
+
+                    <tr>
+                        <td data-title='Provider Name'>
+                            Kyle D. Tiongson
+                        </td>
+                        
+                        <td class='position'>
+                            Press Technician
+                        </td>
+
+                        <td class='jobs'>
+                          Welding and Finishing
+                      </td>
+                      <td>
+                        Occupied
+                      </td>
+                    </tr>
+
+                    <tr>
+                        <td data-title='Provider Name'>
+                            John Paul D. Raloso
+                        </td>
+                        
+                        <td class='position'>
+                            Supply Quality Engineer
+                        </td>
+
+                        <td class='jobs'>
+                          Laser Cutting Services
+                      </td>
+                      <td>
+                        Not Occupied
+                      </td>
+                    </tr>
+
+                    <tr>
+                        <td data-title='Provider Name'>
+                            Rolph Marjon S. Salamat
+                        </td>
+                        
+                        <td class='position'>
+                            Semi-conductor Process Engineer
+                        </td>
+
+                        <td class='jobs'>
+                          Metal Stamping
+                      </td>
+                      <td>
+                        Not Occupied
+                      </td>
+                    </tr>
+                </tbody>
+            </table>
+        </main>
+    </div>
+    </div>
+
+    <script src="supervisor.js">
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manager Dashboard</title>
+    <link rel="icon" type="images/x-icon" href="/images/ICON.JPG" />
+
+    <!-- Montserrat Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="manager.css">
+
+</head>
+
+<!-- START OF BODY -->
+
+<body>
+    <div class="grid-container">
+
+        <!-- Header -->
+        <header class="header">
+            <div class="menu-icon" onclick="openSidebar()">
+                <span class="material-symbols-outlined">menu</span>
+            </div>
+
+            <div class="header-left">
+                <span class="material-symbols-outlined">search</span>
+            </div>
+
+            <div class="header-right">
+                <span class="material-symbols-outlined">notifications</span>
+                <span class="material-symbols-outlined">mail</span>
+                <span class="material-symbols-outlined">account_circle</span>
+            </div>
+        </header>
+
+        <!-- Sidebar -->
+        <nav id="sidebar">
+            <div class="sidebar-title">
+                <div class="sidebar-brand">
+                    <span class="material-symbols-outlined">inventory</span>Tool and Die Shop
+                </div>
+                <span class="material-symbols-outlined" onclick="closeSidebar()">close</span>
+            </div>
+
+            <div id="navbar">
+                <ul class="sidebar-list">
+
+                    <li class="active" class="sidebar-list-item">
+                        <a href="manager.html">
+                            <span class="material-symbols-outlined">dashboard</span> Dashboard
+                        </a>
+                    </li>
+
+                    <li class="active" class="sidebar-list-item">
+                        <a href="#orders" aria-current="page">
+                            <span class="material-symbols-outlined">shopping_cart</span> Orders
+                        </a>
+                    </li>
+
+                    <li class="active" class="sidebar-list-item">
+                        <a href="#reports">
+                            <span class="material-symbols-outlined">summarize</span> Reports
+                        </a>
+                    </li>
+
+                    <li class="active" class="sidebar-list-item">
+                        <a href="#employee">
+                            <span class="material-symbols-outlined">badge</span> Employee
+                        </a>
+                    </li>
+
+                    <li class="active" class="sidebar-list-item">
+                        <a href="#customer" aria-current="page">
+                            <span class="material-symbols-outlined">support_agent</span> Customer
+                        </a>
+                    </li>
+
+                    <li class="active" class="sidebar-list-item"><a href="index.html">
+                            <span class="material-symbols-outlined">
+                                logout
+                            </span> Logout
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            
+        </nav>
+
+
+        <!-- MAIN -->
+        <section class="content">
+
+            <!-- DASHBOARD -->
+            <main class="main-container">
+
+                <div class="main-title">
+                    <p class="font-weight-bold">DASHBOARD</p>
+                </div>
+
+                <div class="main-cards">
+
+                    <div class="card">
+                        <div class="card-inner">
+                            <p class="text-primary">PRODUCTS</p>
+                            <span class="material-symbols-outlined">inventory_2</span>
+                        </div>
+                        <span class="text-primary font-weight-bold">249</span>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-inner">
+                            <p class="text-primary">PURCHASE ORDERS</p>
+                            <span class="material-symbols-outlined">summarize</span>
+                        </div>
+                        <span class="text-primary font-weight-bold">83</span>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-inner">
+                            <p class="text-primary">EMPLOYEE</p>
+                            <span class="material-symbols-outlined">badge</span>
+                        </div>
+                        <span class="text-primary font-weight-bold">79</span>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-inner">
+                            <p class="text-primary">INVENTORY ALERTS</p>
+                            <span class="material-symbols-outlined">notification_important</span>
+                        </div>
+                        <span class="text-primary font-weight-bold">56</span>
+                    </div>
+
+
+            </main>
+
+            <!-- CHARTS -->
+            <div class="charts">
+
+                <div class="charts-card">
+                    <p class="chart-title">Most Used Die</p>
+                    <div id="bar-chart"></div>
+                </div>
+
+                <div class="charts-card">
+                    <p class="chart-title">Purchase and Sales Orders</p>
+                    <div id="area-chart"></div>
+                </div>
+
+            </div>
+
+            <!-- ORDERS -->
+            <section id="orders">
+                <main class="main-container">
+                    <div class="container">
+                        <h3>List of Customer Orders</h3>
+                        <ul class="responsive-table">
+                            <li class="table-header">
+                                <div class="col col-1">Job Id</div>
+                                <div class="col col-2">Customer Name</div>
+                                <div class="col col-3">Amount Due</div>
+                                <div class="col col-4">Payment Status</div>
+                            </li>
+                            <li class="table-row">
+                                <div class="col col-1" data-label="Job Id">10001</div>
+                                <div class="col col-2" data-label="Customer Name">John Doe</div>
+                                <div class="col col-3" data-label="Amount">₱350,000</div>
+                                <div class="col col-4" data-label="Payment Status">Completed</div>
+                            </li>
+                            <li class="table-row">
+                                <div class="col col-1" data-label="Job Id">10002</div>
+                                <div class="col col-2" data-label="Customer Name">Jennifer Smith</div>
+                                <div class="col col-3" data-label="Amount">₱110,000</div>
+                                <div class="col col-4" data-label="Payment Status">Pending</div>
+                            </li>
+                            <li class="table-row">
+                                <div class="col col-1" data-label="Job Id">10003</div>
+                                <div class="col col-2" data-label="Customer Name">John Smith</div>
+                                <div class="col col-3" data-label="Amount">₱400,000</div>
+                                <div class="col col-4" data-label="Payment Status">Pending</div>
+                            </li>
+                            <li class="table-row">
+                                <div class="col col-1" data-label="Job Id">10004</div>
+                                <div class="col col-2" data-label="Customer Name">John Carpenter</div>
+                                <div class="col col-3" data-label="Amount">₱150,000</div>
+                                <div class="col col-4" data-label="Payment Status">Pending</div>
+                            </li>
+                        </ul>
+                    </div>
+                </main>
+            </section>
+
+            <!-- REPORTS -->
+            <section id="reports">
+                <main class="main-container">
+                    <div class="container">
+                        <table class="responsive-table">
+                            <caption>Reports of job order and materials update</caption>
+                            <thead>
+                                <tr>
+                                    <th scope="col">Job ID</th>
+                                    <th scope="col">Status</th>
+                                    <th scope="col">Estimated Time</th>
+                                    <th scope="col">Estimate Cost</th>
+                                    <th scope="col">Final Cost</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <tr>
+                                    <th scope="row">10001</th>
+                                    <td data-title="Status">Completed</td>
+                                    <td data-title="Estimated Time">45 hours</td>
+                                    <td data-title="Estimated Cost" data-type="currency">₱300,000</td>
+                                    <td data-title="Total Cost" data-type="currency">₱350,000</td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">10002</th>
+                                    <td data-title="Status">On going</td>
+                                    <td data-title="Estimated Time">25 hours</td>
+                                    <td data-title="Estimated Cost" data-type="currency">₱90,000</td>
+                                    <td data-title="Total Cost" data-type="currency">₱110,000</td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">10003</th>
+                                    <td data-title="Status">Delay</td>
+                                    <td data-title="Estimated Time">98 hours</td>
+                                    <td data-title="Estimated Cost" data-type="currency">₱380,000</td>
+                                    <td data-title="Total Cost" data-type="currency">₱400,000</td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">10004</th>
+                                    <td data-title="Status">Delay</td>
+                                    <td data-title="Estimated Time">21 hours</td>
+                                    <td data-title="Estimated Cost" data-type="currency">₱120,000</td>
+                                    <td data-title="Total Cost" data-type="currency">₱150,000</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </main>
+            </section>
+
+            <!-- EMPLOYEE -->
+            <section id="employee">
+                <main class="main-container">
+
+                    <div class="main-title">
+                        <p class="font-weight-bold">EMPLOYEE</p>
+                    </div>
+
+                    <div class="employee">
+                        <h1>
+                            Employee List
+                        </h1>
+                        <main>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            Employee Name
+                                        </th>
+                                        <th>
+                                            E-mail
+                                        </th>
+                                        <th>
+                                            Position
+                                        </th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <tr>
+                                        <td data-title='Provider Name'>
+                                            Dalton John A. Palma
+                                        </td>
+                                        <td data-title='E-mail'>
+                                            e-mail@test-email.com
+                                        </td>
+                                        <td class='position'>
+                                            CNC Laser Operator
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td data-title='Provider Name'>
+                                            Catherine A. Olleres
+                                        </td>
+                                        <td data-title='E-mail'>
+                                            e-mail@test-email.com
+                                        </td>
+                                        <td class='position'>
+                                            Engineering Tool & Die Designer
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td data-title='Provider Name'>
+                                            Kyle D. Tiongson
+                                        </td>
+                                        <td data-title='E-mail'>
+                                            e-mail@test-email.com
+                                        </td>
+                                        <td class='position'>
+                                            Press Technician
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td data-title='Provider Name'>
+                                            John Paul D. Raloso
+                                        </td>
+                                        <td data-title='E-mail'>
+                                            e-mail@test-email.com
+                                        </td>
+                                        <td class='position'>
+                                            Supply Quality Engineer
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td data-title='Provider Name'>
+                                            Rolph Marjon S. Salamat
+                                        </td>
+                                        <td data-title='E-mail'>
+                                            e-mail@test-email.com
+                                        </td>
+                                        <td class='position'>
+                                            Semi-conductor Process Engineer
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </main>
+                    </div>
+
+                </main>
+            </section>
+
+            <!-- CUSTOMER -->
+            <section id="customer">
+                <main class="main-container">
+
+                    <div class="main-title">
+                        <p class="font-weight-bold">CUSTOMER</p>
+                    </div>
+
+                    <div class="chatbot">
+
+                        <header class="head">
+                            <h2>ChatBot</h2>
+                        </header>
+
+                        <ul class="chatbox">
+                            <li class="chat incoming">
+                                <span class="material-symbols-outlined">smart_toy</span>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis alias possimus
+                                    rerum
+                                    perspiciatis sunt, ratione nisi tempora beatae in repudiandae, totam quia ut quos
+                                    iusto
+                                    laborum est voluptatem eos voluptatibus?</p>
+                            </li>
+
+                            <li class="chat outgoing">
+                                <span class="material-symbols-outlined">smart_toy</span>
+                                <p>Hi there! What can I do for you?</p>
+                            </li>
+
+                            <li class="chat-input">
+                                <textarea placeholder="Enter a message.."></textarea>
+                                <span id="sned-btn" class="material-symbols-outlined">send</span>
+                            </li>
+                        </ul>
+
+                    </div>
+
+                    <!-- STYLE FOR CHATBOT -->
+                    <style>
+                        .chatbot {
+                            overflow: hidden;
+                            background: #fff;
+                            border-radius: 15px;
+                            box-shadow: 0 0 128px 0 rgba(0, 0, 0, 0.1), 0 32px 64px -48px rgba(0, 0, 0, 0.5);
+                        }
+
+                        .chatbot header {
+                            background: #724ae8;
+                            padding: 16px 0;
+                            text-align: center;
+                        }
+
+                        .chatbot header h2 {
+                            color: #fff;
+                            font-size: 1.4rem;
+                        }
+
+                        .chatbot .chatbox {
+                            height: 290px;
+                            overflow-y: auto;
+                            padding: 15px 20px 70px;
+                        }
+
+                        .chatbox .chat {
+                            display: flex;
+                        }
+
+                        .chatbox .incoming span {
+                            height: 32px;
+                            width: 32px;
+                            color: #fff;
+                            background: #724ae8;
+                            text-align: center;
+                            line-height: 32px;
+                            border-radius: 4px;
+                            margin: 0 10px 7px 0;
+                        }
+
+                        .chatbox .outgoing {
+                            margin: 20px 0;
+                            justify-content: flex-end;
+                        }
+
+                        .chatbox .chat p {
+                            color: #fff;
+                            max-width: 75%;
+                            font-size: 0.95rem;
+                            padding: 12px 16px;
+                            border-radius: 10px;
+                            background: #724ae8;
+                        }
+
+                        .chatbox .incoming p {
+                            color: #000;
+                            background: #f2f2f2;
+                            border-radius: 10px 10px 10px 0;
+                        }
+
+                        .chatbot .chat-input {
+                            position: chatbox;
+                            bottom: 0;
+                            width: 100%;
+                            background: #fff;
+                            padding: 5px 20px;
+                            border-top: 1px solid #ccc;
+                        }
+
+                        .chat-input textarea {
+                            height: 5px;
+                            width: 100%;
+                            border: none;
+                            outline: none;
+                            font-size: 0.95rem;
+                            resize: none;
+                            padding: 16px 15px 16px 0;
+                        }
+
+                        .chat-input span {
+                            align-self: flex-end;
+                            height: 55px;
+                            line-height: 55px;
+                            color: #724ae8;
+                            font-size: 1.35rem;
+                            cursor: pointer;
+                        }
+                    </style>
+
+                </main>
+            </section>
+
+            <!-- END MAIN -->
+        </section>
+        
+    </div>
+
+    <!-- ApexCharts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.3/apexcharts.min.js"></script>
+    <!-- JS -->
+    <script src="manager.js"></script>
+
+</body>
+
+</html>

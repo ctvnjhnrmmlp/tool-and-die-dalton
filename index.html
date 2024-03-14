@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Tool & Die Shop</title>
+		<link rel="icon" type="images/x-icon" href="/images/ICON.JPG" />
+		<link rel="stylesheet" href="index.css" />
+		<script
+			src="https://kit.fontawesome.com/8f461734a4.js"
+			crossorigin="anonymous"
+		></script>
+	</head>
+
+	<body>
+		<div class="container">
+			<div class="form-box">
+				<h1>Tool & Die Shop</h1>
+				<form>
+					<div class="input-group">
+						<div class="input-field">
+							<i class="fa-solid fa-user"></i>
+							<input type="text" placeholder="Username" class="user" />
+						</div>
+
+						<div class="input-field">
+							<i class="fa-solid fa-lock"></i>
+							<input type="password" placeholder="Password" class="password" />
+						</div>
+					</div>
+					<div class="btn-field">
+						<button type="button" class="login">Log in</button>
+					</div>
+				</form>
+			</div>
+		</div>
+
+		<script>
+			document.querySelector('.login').addEventListener('click', () => {
+				handleClick();
+			});
+
+			function handleClick() {
+				let userElement = document.querySelector('.user').value;
+				let passElement = document.querySelector('.password').value;
+
+				if (userElement === 'worker' && passElement === 'worker') {
+					window.location.assign('worker.html');
+					alert('Login Successful');
+				} else if (
+					userElement === 'supervisor' &&
+					passElement === 'supervisor'
+				) {
+					window.location.assign('supervisor.html');
+					alert('Login Sucessful');
+				} else if (userElement === 'manager' && passElement === 'manager') {
+					window.location.assign('manager.html');
+					alert('Login Sucessful');
+				} else {
+					alert('ERROR:\nLogin Error');
+				}
+			}
+		</script>
+	</body>
+</html>

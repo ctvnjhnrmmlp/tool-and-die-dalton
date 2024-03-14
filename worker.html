@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Employee Profile</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
+  <link rel="icon" type="images/x-icon" href="/images/ICON.JPG" />
+  <link rel="stylesheet" href="worker.css">
+  <style>
+
+  </style>
+</head>
+
+<body>
+  <aside id="sidebar">
+    <div class="sidebar-title">
+      <div class="sidebar-brand">
+        <span class="material-symbols-outlined">inventory</span>Tool and Die Shop
+      </div>
+      <span class="material-symbols-outlined" onclick="closeSidebar()">close</span>
+    </div>
+
+    <ul class="sidebar-list">
+
+      <li class="active" class="sidebar-list-item">
+        <a href="">
+          <span class="material-symbols-outlined">dashboard</span> Dashboard
+        </a>
+      </li>
+
+      <li class="active" class="sidebar-list-item">
+        <a href="#profile">
+          <span class="material-symbols-outlined">
+            badge
+          </span> Profile
+        </a>
+      </li>
+
+      <li class="active" class="sidebar-list-item">
+        <a href="#payslip">
+          <span class="material-symbols-outlined">
+            receipt_long
+          </span> Payslip
+        </a>
+      </li>
+
+      <li class="active" class="sidebar-list-item">
+        <a href="index.html">
+          <span class="material-symbols-outlined">
+            logout
+          </span> Logout
+        </a>
+      </li>
+
+    </ul>
+
+  </aside>
+
+  <div class="container">
+    <h1>Worker Log</h1>
+
+    <form>
+      <label for="startTime">Start time: </label>
+      <input type="time" class='startTime' />
+
+      <label for="endTime">End time: </label>
+      <input type="time" class='endTime' />
+    </form>
+
+    <button class='js-changeBtn cssBtn'>Login</button>
+
+    <table class='result'>
+      <tr>
+        <th>Time-In</th>
+        <th>Time-Out</th>
+        <th>Date</th>
+        <th>Job Number</th>
+        <th>Status</th>
+        <th>Job Type</th>
+      </tr>
+      <tr>
+        <td>10:00</td>
+        <td>6:00</td>
+        <td>2024-02-14</td>
+        <td>567</td>
+        <td>Completed</td>
+        <td>Welding and Finishing</td>
+      </tr>
+      <tr>
+        <td>8:00</td>
+        <td>4:00</td>
+        <td>2024-02-16</td>
+        <td>237</td>
+        <td>Completed</td>
+        <td>Laser Cutting Services</td>
+      </tr>
+      <tr>
+        <td>10:00</td>
+        <td>6:00</td>
+        <td>2024-02-18</td>
+        <td>781</td>
+        <td>Completed</td>
+        <td>Metal Fabrication Services</td>
+      </tr>
+      <tr>
+        <td>10:00</td>
+        <td>6:00</td>
+        <td>2024-02-24</td>
+        <td>152</td>
+        <td>Delay</td>
+        <td>Metal Stamping</td>
+      </tr>
+      <tr>
+        <td>10:00</td>
+        <td>6:00</td>
+        <td>2024-02-26</td>
+        <td>587</td>
+        <td>In-Progress</td>
+        <td>Welding and Finishing</td>
+      </tr>
+
+    </table>
+  </div>
+
+
+  <!-- PROFILE -->
+  <section id="profile">
+    <main class="main-container">
+      <div class="profile">
+        <h2>Profile</h2>
+        <img src="/images/employeeDP.JPG" class="img-1">
+      </div>
+
+      <div class="personalInfo">
+        <h2>Personal Information</h2>
+        <div class="personalDetails">
+          <p>Name: Dalton John A. Palma</p>
+          <p>Birthday: December 31, 2024</p>
+          <p>Blood Type: A++</p>
+          <p>Position: CNC Laser Operator</p>
+          <p>Cellphone Number: 0912 345 6789</p>
+        </div>
+      </div>
+    </main>
+  </section>
+
+  <!-- PAYSLIP -->
+  <section id="payslip">
+    <h1>PAYSLIP FOR THE MONTH OF {FEBRUARY 2024}</h1>
+
+    <div id="table">
+      <table>
+        <tr>
+          <th>Employee name</th>
+          <td>Dalton John A. Palma</td>
+          <th>Position</th>
+          <td>CNC Laser Operator</td>
+        </tr>
+
+        <tr>
+          <th>Employee ID</th>
+          <td>1902441</td>
+          <th>Department</th>
+          <td>Operator</td>
+        </tr>
+
+        <tr>
+          <th>Location</th>
+          <td>Cabuyao, Laguna</td>
+          <th>Month/Year</th>
+          <td>February 25, 2024</td>
+        </tr>
+      </table>
+    </div>
+
+    <div>
+      <h2>Earnings total</h2>
+      <table class="table">
+        <tr style="font-weight: bold;">
+          <td>PaymentID</td>
+          <td>Payment closed date</td>
+          <td>Rate</td>
+          <td>Hours</td>
+          <td>Total</td>
+        </tr>
+        <tbody class="table-hover">
+          <tr>
+            <td>2345</td>
+            <td>14 FEB</td>
+            <td class="td-num">₱ 5,000.00</td>
+            <td class="td-num">9</td>
+            <td class="td-num">₱ 5,500.00</td>
+          </tr>
+          <tr>
+            <td>2516</td>
+            <td>17 FEB</td>
+            <td class="td-num">₱ 6,000.00</td>
+            <td class="td-num">7</td>
+            <td class="td-num">₱ 6,250.00</td>
+          </tr>
+          <tr>
+            <td>2615</td>
+            <td>20 FEB</td>
+            <td class="td-num">₱ 4,500.00</td>
+            <td class="td-num">8</td>
+            <td class="td-num">₱ 5,000.00</td>
+          </tr>
+          <tr>
+            <td>2754</td>
+            <td>22 FEB</td>
+            <td class="td-num">₱ 6,500.00</td>
+            <td class="td-num">6</td>
+            <td class="td-num">₱ 7,250.00</td>
+          </tr>
+          <tr>
+            <td>2894</td>
+            <td>25 FEB</td>
+            <td class="td-num">₱ 4,750.00</td>
+            <td class="td-num">10</td>
+            <td class="td-num">₱ 6,500.00</td>
+          </tr>
+          <tr>
+            <td>Total case balance</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="td-num">₱ 30,500.00</td>
+          </tr>
+          <td>Income Tax (10%)</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="td-num">- ₱ 3,500.00</td>
+          </tr>
+          <tr>
+            <td>Bonus</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="td-num">₱ 500</td>
+          </tr>
+        </tbody>
+        <tr>
+          <td>Grand total</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="td-num">₱ 27,950.00</td>
+        </tr>
+      </table>
+    </div>
+  </section>
+
+
+
+
+  <!-- SCRIPT -->
+  <script src="worker.js">
+
+  </script>
+</body>
+
+</html>
